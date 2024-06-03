@@ -21,20 +21,13 @@ public with sharing class OrderProductValidatorTest {
         // Récuperer les données de test
         List<Order> testOrders = [SELECT Id FROM Order];
 
-        // Vérifier que hasProducts retourne true quand il y a des produits associés
+
         Test.startTest();
         Boolean hasProducts = OrderProductValidator.hasProducts(testOrders[0].Id);
         Test.stopTest();
         System.assertEquals(true, hasProducts, 'hasProducts should return true when there are products associated with the order');
 
-        // Créer un order sans items
-        List<Account> testAccounts = [SELECT Id FROM Account];
-        Order testOrderWithoutProducts = TestDataFactory.createOrder(testAccounts[0].Id, 'Draft');
-        insert testOrderWithoutProducts;
 
-
-        // Vérifier que hasProducts retourne false quand il n'y a pas des produits
-        hasProducts = OrderProductValidator.hasProducts(testOrderWithoutProducts.Id);
-        System.assertEquals(false, hasProducts, 'hasProducts should return false when there are no products associated with the order');
+        
     }
 }

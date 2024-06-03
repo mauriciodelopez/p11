@@ -34,7 +34,10 @@ public with sharing class OrderProductValidatorTest {
 
 
         // Vérifier que hasProducts retourne false quand il n'y a pas des produits
+        Test.startTest();
         hasProducts = OrderProductValidator.hasProducts(testOrderWithoutProducts.Id);
+        Test.stopTest();
         System.assertEquals(false, hasProducts, 'hasProducts should return false when there are no products associated with the order');
+   
     }
 }

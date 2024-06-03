@@ -6,7 +6,7 @@
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 **/
 public with sharing class OrderProductValidator {
-    public static Boolean hasProducts(Id orderId) {//hasProducts c'est un method public static  qui prend un argument orderId de type Id, la method return une valeur boolean a la question = est que l'ordre a des produits et return un (true ou false)
+    public static Boolean hasProducts(Id orderId) {//hasProducts c'est un method public static  qui prend un argument orderId de type Id, la method return une valeur boolean a la question (true ou false)
         // Verifier les permis CRUD
         if (!Schema.sObjectType.OrderItem.isAccessible()) {
             throw new SecurityException('Vous navez pas de droits suffisants pour pouvoir acceder à OrderItem');

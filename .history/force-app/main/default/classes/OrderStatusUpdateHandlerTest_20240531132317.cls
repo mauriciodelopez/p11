@@ -28,7 +28,7 @@ public with sharing class OrderStatusUpdateHandlerTest {
         Test.startTest();
         Database.SaveResult sr = Database.update(testOrderWithoutProducts, false);
         Test.stopTest();
-        //System.assertFalse(!sr.isSuccess(),'Update should have failed when no products are associated');
-        System.assertEquals('Vous ne pouvez pas passer le statut de l’ordre à « Actif » sauf si l’ordre en question a des produits associés.', sr.getErrors()[0].getMessage(), 'Error message should match expected');
+        System.assertFalse(sr.isSuccess());
+        System.assertEquals('Vous ne pouvez pas passer le statut de l’ordre à « Actif » sauf si l’ordre en question a des produits associés.', sr.getErrors()[0].getMessage());
     }
 }

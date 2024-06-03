@@ -18,23 +18,12 @@ public with sharing class OrderProductValidatorTest {
     }
     @isTest
     static void testHasProducts() {
-        // Récuperer les données de test
-        List<Order> testOrders = [SELECT Id FROM Order];
-
-        // Vérifier que hasProducts retourne true quand il y a des produits associés
-        Test.startTest();
-        Boolean hasProducts = OrderProductValidator.hasProducts(testOrders[0].Id);
-        Test.stopTest();
-        System.assertEquals(true, hasProducts, 'hasProducts should return true when there are products associated with the order');
-
-        // Créer un order sans items
-        List<Account> testAccounts = [SELECT Id FROM Account];
+        // Test scenario: Order has products
+        System.assert(OrderProductValidator.hasProducts(testOrders[0].Id), 'Order should have products');
+        
+        // Test scenario: Order has no products
         Order testOrderWithoutProducts = TestDataFactory.createOrder(testAccounts[0].Id, 'Draft');
         insert testOrderWithoutProducts;
-
-
-        // Vérifier que hasProducts retourne false quand il n'y a pas des produits
-        hasProducts = OrderProductValidator.hasProducts(testOrderWithoutProducts.Id);
-        System.assertEquals(false, hasProducts, 'hasProducts should return false when there are no products associated with the order');
+        System.assert(!OrderProductValidator.hasProducts(testOrderWithoutProducts.Id), 'Order should have no products');
     }
 }
