@@ -16,7 +16,8 @@ public with sharing class OrderStatusUpdateHandler {
             // Vérifier si le statut passe de 'Draft' à 'Active'
             if (oldOrder.Status == 'Draft' && ord.Status == 'Activated') {
                 // Vérifier si l'order possède des produits associés
-                if (!OrderProductValidator.hasProducts(ord.Id)) {  
+                if (!OrderProductValidator.hasProducts(ord.Id)) {
+                    
                     ord.addError('Vous ne pouvez pas passer le statut de lordre à « Actif » sauf si lordre en question a des produits associés.');
                 }
             }

@@ -22,7 +22,7 @@ trigger OrderStatusUpdateTrigger on Order (before update) {
 //Donc choses a faire c'est Renommer les classes de test avec le bon nom
 //faire le @testsetup pour la class test triggerhandler après avoir changer le nom
 // La class de test OrderProductValidator enlever l'appel de la methode hasProducts dans le boucle for, rappel toi Pas d'appel de methode hasproducts dans le for, a la place faire une list
-//Les risques d'avoir lappel de la methode dans le for, est collapse lorsque on lutilise avec beaucoup des donnes de test 
+//Les risques d'avoir le 
 //Faire une seule class que englobe les class en orderTriggerHandler & OrderProductValidator, c'est n'est pas obligatoire 
 
 
