@@ -24,4 +24,4 @@ public with sharing class OrderStatusUpdateHandler {
     }
 }
 
-//Pas d'appel de methode hasproducts dans le for et faire une seule class pour handler et la methode hasproducts
+//Pas d'appel de methode hasproducts dans le for et faire une seule class pour 

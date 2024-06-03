@@ -20,5 +20,5 @@ trigger OrderStatusUpdateTrigger on Order (before update) {
 //change le nom du trigger à OrderTrigger
 //change le nom de la classe à OrderTriggerHandler
 // renommer les classes de test 
-//faire le @testsetup pour la class test triggerhandler
+//faire le @testsetup pour la class test 
 
