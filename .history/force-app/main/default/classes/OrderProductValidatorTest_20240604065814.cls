@@ -36,11 +36,11 @@ public with sharing class OrderProductValidatorTest {
         Order testOrderWithoutProducts = TestDataFactory.createOrder(testAccounts[0].Id, 'Draft');
         insert testOrderWithoutProducts;
         orderIds.clear();
-        orderIds.add(testOrderWithoutProducts.Id);
+        order.add(testOrderWithoutProducts.Id);
 
 
         // Vérifier que hasProducts retourne false quand il n'y a pas des produits
         hasProductsMap = OrderProductValidator.hasProducts(orderIds);
-        System.assertEquals(false, hasProductsMap.get(testOrderWithoutProducts.Id), 'hasProducts should return false when there are no products associated with the order');
+        System.assertEquals(false, hasProducts, 'hasProducts should return false when there are no products associated with the order');
     }
 }

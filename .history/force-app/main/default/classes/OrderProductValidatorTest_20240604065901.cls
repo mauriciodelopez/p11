@@ -36,7 +36,7 @@ public with sharing class OrderProductValidatorTest {
         Order testOrderWithoutProducts = TestDataFactory.createOrder(testAccounts[0].Id, 'Draft');
         insert testOrderWithoutProducts;
         orderIds.clear();
-        orderIds.add(testOrderWithoutProducts.Id);
+        order.add(testOrderWithoutProducts.Id);
 
 
         // Vérifier que hasProducts retourne false quand il n'y a pas des produits

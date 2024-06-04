@@ -27,5 +27,7 @@ public with sharing class OrderProductValidator {
         }
 
         return hasProductsMap;
+
+
     }
 }

@@ -14,18 +14,6 @@ public with sharing class OrderProductValidator {
 
         // Initialiser une carte pour stocker les résultats
         Map<Id, Boolean> hasProductsMap = new Map<Id, Boolean>();
-        for (Id orderId : orderIds) {
-            hasProductsMap.put(orderId, false);
-        }
 
-        // Perform a single SOQL query to retrieve all OrderItem records for the given order IDs
-        List<OrderItem> orderItems = [SELECT OrderId FROM OrderItem WHERE OrderId IN :orderIds];
-
-        // Process the results to determine which orders have products
-        for (OrderItem item : orderItems) {
-            hasProductsMap.put(item.OrderId, true);
-        }
-
-        return hasProductsMap;
     }
 }

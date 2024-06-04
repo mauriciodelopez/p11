@@ -29,18 +29,16 @@ public with sharing class OrderProductValidatorTest {
         Test.startTest();
         Map<Id, Boolean> hasProductsMap = OrderProductValidator.hasProducts(orderIds);
         Test.stopTest();
-        System.assertEquals(true, hasProductsMap.get(testOrders[0].Id), 'hasProducts should return true when there are products associated with the order');
+        System.assertEquals(true, hasProductsMap.get(testOrders[0].Id,'Draft' 'hasProducts should return true when there are products associated with the order');
 
         // Créer un order sans items
         List<Account> testAccounts = [SELECT Id FROM Account];
         Order testOrderWithoutProducts = TestDataFactory.createOrder(testAccounts[0].Id, 'Draft');
         insert testOrderWithoutProducts;
-        orderIds.clear();
-        orderIds.add(testOrderWithoutProducts.Id);
 
 
         // Vérifier que hasProducts retourne false quand il n'y a pas des produits
-        hasProductsMap = OrderProductValidator.hasProducts(orderIds);
-        System.assertEquals(false, hasProductsMap.get(testOrderWithoutProducts.Id), 'hasProducts should return false when there are no products associated with the order');
+        hasProducts = OrderProductValidator.hasProducts(testOrderWithoutProducts.Id);
+        System.assertEquals(false, hasProducts, 'hasProducts should return false when there are no products associated with the order');
     }
 }
